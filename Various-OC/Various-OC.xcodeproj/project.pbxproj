@@ -15,6 +15,7 @@
 		4CE1F2B71EF264920048ED8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F2B51EF264920048ED8F /* LaunchScreen.storyboard */; };
 		4CE1F2C21EF264920048ED8F /* Various_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2C11EF264920048ED8F /* Various_OCTests.m */; };
 		4CE1F2CD1EF264920048ED8F /* Various_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */; };
+		4CE1F2DD1EF3C5BE0048ED8F /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2DC1EF3C5BE0048ED8F /* TestView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Various_OCUITests.m; sourceTree = "<group>"; };
 		4CE1F2CE1EF264920048ED8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE1F2DA1EF26F740048ED8F /* YYMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMac.h; sourceTree = "<group>"; };
+		4CE1F2DB1EF3C5BE0048ED8F /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		4CE1F2DC1EF3C5BE0048ED8F /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				4CE1F2B81EF264920048ED8F /* Info.plist */,
 				4CE1F2A71EF264920048ED8F /* Supporting Files */,
 				4CE1F2DA1EF26F740048ED8F /* YYMac.h */,
+				4CE1F2DB1EF3C5BE0048ED8F /* TestView.h */,
+				4CE1F2DC1EF3C5BE0048ED8F /* TestView.m */,
 			);
 			path = "Various-OC";
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE1F2DD1EF3C5BE0048ED8F /* TestView.m in Sources */,
 				4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */,
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
 				4CE1F2A91EF264920048ED8F /* main.m in Sources */,

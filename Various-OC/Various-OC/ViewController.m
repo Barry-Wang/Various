@@ -28,10 +28,19 @@
     YM_Swap(a, b);
     
     NSLog(@"a = %d, b = %d", a, b);
-
-    NSAssert(view != nil, @"view不能为空", @"第一个参数", @"第二个参数");
+    
+    
+    NSThread *seperatorThread = [[NSThread alloc] initWithTarget:self selector:@selector(print) object:nil];
+    [seperatorThread start];
     
 }
+
+- (void)print {
+   
+ 
+
+}
+
 
 
 - (void)didReceiveMemoryWarning {
