@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CAF32311EF8C06F00BCF20B /* snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32301EF8C06F00BCF20B /* snow@2x.png */; };
+		4CAF32331EF8CA0D00BCF20B /* rain-back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32321EF8CA0D00BCF20B /* rain-back@3x.png */; };
+		4CAF32351EF8EF1E00BCF20B /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32341EF8EF1E00BCF20B /* sun.png */; };
+		4CAF32391EF8F77200BCF20B /* CASunlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF32381EF8F77200BCF20B /* CASunlightView.swift */; };
+		4CAF32431EF90DAB00BCF20B /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32421EF90DAB00BCF20B /* fire.png */; };
+		4CAF32461EF9138600BCF20B /* sunlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32441EF9138600BCF20B /* sunlight@2x.png */; };
+		4CAF32471EF9138600BCF20B /* sunlight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32451EF9138600BCF20B /* sunlight@3x.png */; };
+		4CAF324A1EF913AC00BCF20B /* sunlight_night@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32481EF913AC00BCF20B /* sunlight_night@2x.png */; };
+		4CAF324B1EF913AC00BCF20B /* sunlight_night@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32491EF913AC00BCF20B /* sunlight_night@3x.png */; };
+		4CAF324E1EF913F800BCF20B /* light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF324C1EF913F800BCF20B /* light@2x.png */; };
+		4CAF324F1EF913F800BCF20B /* light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF324D1EF913F800BCF20B /* light@3x.png */; };
+		4CAF32541EF9147F00BCF20B /* cloudy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32501EF9147F00BCF20B /* cloudy@2x.png */; };
+		4CAF32551EF9147F00BCF20B /* rain_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32511EF9147F00BCF20B /* rain_back@2x.png */; };
+		4CAF32561EF9147F00BCF20B /* cloudy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32521EF9147F00BCF20B /* cloudy@3x.png */; };
+		4CAF32571EF9147F00BCF20B /* rain_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32531EF9147F00BCF20B /* rain_back@3x.png */; };
+		4CAF32591EF915C000BCF20B /* yun@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF32581EF915C000BCF20B /* yun@3x.png */; };
+		4CAF325B1EF9161100BCF20B /* yun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAF325A1EF9161100BCF20B /* yun@2x.png */; };
 		4CE1F2F11EF7D22E0048ED8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2F01EF7D22E0048ED8F /* AppDelegate.swift */; };
 		4CE1F2F31EF7D22E0048ED8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2F21EF7D22E0048ED8F /* ViewController.swift */; };
 		4CE1F2F61EF7D22E0048ED8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F2F41EF7D22E0048ED8F /* Main.storyboard */; };
@@ -14,6 +31,8 @@
 		4CE1F2FB1EF7D22E0048ED8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F2F91EF7D22E0048ED8F /* LaunchScreen.storyboard */; };
 		4CE1F3061EF7D22E0048ED8F /* CAAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F3051EF7D22E0048ED8F /* CAAnimationTests.swift */; };
 		4CE1F3111EF7D22E0048ED8F /* CAAnimationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F3101EF7D22E0048ED8F /* CAAnimationUITests.swift */; };
+		4CE1F31F1EF7D2540048ED8F /* CAEmitterLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F31E1EF7D2540048ED8F /* CAEmitterLayerView.swift */; };
+		4CE1F3211EF7E5810048ED8F /* rain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F3201EF7E5810048ED8F /* rain@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +53,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CAF32301EF8C06F00BCF20B /* snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow@2x.png"; sourceTree = "<group>"; };
+		4CAF32321EF8CA0D00BCF20B /* rain-back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain-back@3x.png"; sourceTree = "<group>"; };
+		4CAF32341EF8EF1E00BCF20B /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		4CAF32381EF8F77200BCF20B /* CASunlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CASunlightView.swift; sourceTree = "<group>"; };
+		4CAF32421EF90DAB00BCF20B /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		4CAF32441EF9138600BCF20B /* sunlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunlight@2x.png"; sourceTree = "<group>"; };
+		4CAF32451EF9138600BCF20B /* sunlight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunlight@3x.png"; sourceTree = "<group>"; };
+		4CAF32481EF913AC00BCF20B /* sunlight_night@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunlight_night@2x.png"; sourceTree = "<group>"; };
+		4CAF32491EF913AC00BCF20B /* sunlight_night@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sunlight_night@3x.png"; sourceTree = "<group>"; };
+		4CAF324C1EF913F800BCF20B /* light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light@2x.png"; sourceTree = "<group>"; };
+		4CAF324D1EF913F800BCF20B /* light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light@3x.png"; sourceTree = "<group>"; };
+		4CAF32501EF9147F00BCF20B /* cloudy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudy@2x.png"; sourceTree = "<group>"; };
+		4CAF32511EF9147F00BCF20B /* rain_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain_back@2x.png"; sourceTree = "<group>"; };
+		4CAF32521EF9147F00BCF20B /* cloudy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudy@3x.png"; sourceTree = "<group>"; };
+		4CAF32531EF9147F00BCF20B /* rain_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain_back@3x.png"; sourceTree = "<group>"; };
+		4CAF32581EF915C000BCF20B /* yun@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yun@3x.png"; sourceTree = "<group>"; };
+		4CAF325A1EF9161100BCF20B /* yun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yun@2x.png"; sourceTree = "<group>"; };
 		4CE1F2ED1EF7D22E0048ED8F /* CAAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE1F2F01EF7D22E0048ED8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE1F2F21EF7D22E0048ED8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +83,8 @@
 		4CE1F30C1EF7D22E0048ED8F /* CAAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CAAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE1F3101EF7D22E0048ED8F /* CAAnimationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAnimationUITests.swift; sourceTree = "<group>"; };
 		4CE1F3121EF7D22E0048ED8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CE1F31E1EF7D2540048ED8F /* CAEmitterLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerView.swift; sourceTree = "<group>"; };
+		4CE1F3201EF7E5810048ED8F /* rain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +135,31 @@
 		4CE1F2EF1EF7D22E0048ED8F /* CAAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				4CAF325A1EF9161100BCF20B /* yun@2x.png */,
+				4CAF32581EF915C000BCF20B /* yun@3x.png */,
+				4CAF32501EF9147F00BCF20B /* cloudy@2x.png */,
+				4CAF32511EF9147F00BCF20B /* rain_back@2x.png */,
+				4CAF32521EF9147F00BCF20B /* cloudy@3x.png */,
+				4CAF32531EF9147F00BCF20B /* rain_back@3x.png */,
+				4CAF324C1EF913F800BCF20B /* light@2x.png */,
+				4CAF324D1EF913F800BCF20B /* light@3x.png */,
+				4CAF32481EF913AC00BCF20B /* sunlight_night@2x.png */,
+				4CAF32491EF913AC00BCF20B /* sunlight_night@3x.png */,
+				4CAF32441EF9138600BCF20B /* sunlight@2x.png */,
+				4CAF32451EF9138600BCF20B /* sunlight@3x.png */,
+				4CAF32421EF90DAB00BCF20B /* fire.png */,
+				4CAF32341EF8EF1E00BCF20B /* sun.png */,
+				4CAF32321EF8CA0D00BCF20B /* rain-back@3x.png */,
+				4CAF32301EF8C06F00BCF20B /* snow@2x.png */,
+				4CE1F3201EF7E5810048ED8F /* rain@2x.png */,
 				4CE1F2F01EF7D22E0048ED8F /* AppDelegate.swift */,
 				4CE1F2F21EF7D22E0048ED8F /* ViewController.swift */,
 				4CE1F2F41EF7D22E0048ED8F /* Main.storyboard */,
 				4CE1F2F71EF7D22E0048ED8F /* Assets.xcassets */,
 				4CE1F2F91EF7D22E0048ED8F /* LaunchScreen.storyboard */,
 				4CE1F2FC1EF7D22E0048ED8F /* Info.plist */,
+				4CE1F31E1EF7D2540048ED8F /* CAEmitterLayerView.swift */,
+				4CAF32381EF8F77200BCF20B /* CASunlightView.swift */,
 			);
 			path = CAAnimation;
 			sourceTree = "<group>";
@@ -232,9 +289,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAF32331EF8CA0D00BCF20B /* rain-back@3x.png in Resources */,
+				4CAF32461EF9138600BCF20B /* sunlight@2x.png in Resources */,
+				4CAF324B1EF913AC00BCF20B /* sunlight_night@3x.png in Resources */,
 				4CE1F2FB1EF7D22E0048ED8F /* LaunchScreen.storyboard in Resources */,
+				4CAF32541EF9147F00BCF20B /* cloudy@2x.png in Resources */,
+				4CAF32311EF8C06F00BCF20B /* snow@2x.png in Resources */,
 				4CE1F2F81EF7D22E0048ED8F /* Assets.xcassets in Resources */,
+				4CAF32551EF9147F00BCF20B /* rain_back@2x.png in Resources */,
+				4CAF32561EF9147F00BCF20B /* cloudy@3x.png in Resources */,
+				4CAF32431EF90DAB00BCF20B /* fire.png in Resources */,
+				4CAF32351EF8EF1E00BCF20B /* sun.png in Resources */,
+				4CAF32591EF915C000BCF20B /* yun@3x.png in Resources */,
+				4CAF32471EF9138600BCF20B /* sunlight@3x.png in Resources */,
+				4CAF32571EF9147F00BCF20B /* rain_back@3x.png in Resources */,
+				4CAF324E1EF913F800BCF20B /* light@2x.png in Resources */,
+				4CAF325B1EF9161100BCF20B /* yun@2x.png in Resources */,
+				4CAF324F1EF913F800BCF20B /* light@3x.png in Resources */,
+				4CE1F3211EF7E5810048ED8F /* rain@2x.png in Resources */,
 				4CE1F2F61EF7D22E0048ED8F /* Main.storyboard in Resources */,
+				4CAF324A1EF913AC00BCF20B /* sunlight_night@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +333,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAF32391EF8F77200BCF20B /* CASunlightView.swift in Sources */,
 				4CE1F2F31EF7D22E0048ED8F /* ViewController.swift in Sources */,
 				4CE1F2F11EF7D22E0048ED8F /* AppDelegate.swift in Sources */,
+				4CE1F31F1EF7D2540048ED8F /* CAEmitterLayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +583,7 @@
 				4CE1F3171EF7D22E0048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE1F3181EF7D22E0048ED8F /* Build configuration list for PBXNativeTarget "CAAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +592,7 @@
 				4CE1F31A1EF7D22E0048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE1F31B1EF7D22E0048ED8F /* Build configuration list for PBXNativeTarget "CAAnimationUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +601,7 @@
 				4CE1F31D1EF7D22E0048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
