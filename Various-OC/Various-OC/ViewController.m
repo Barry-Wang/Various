@@ -9,36 +9,52 @@
 #import "ViewController.h"
 #import "YYMac.h"
 
-@interface ViewController ()
 
+@interface ViewController ()<printProtocaolDelegate>
+@property (nonatomic, assign) NSTimeInterval currentTime;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    UIView *view = nil;
-    NSLog(@"%d", YM_Middle(10, 5, 20));
+    
 
-    NSLog(@"%d", YM_Middle(10, 15, 20));
     
-    int a = 5, b = 0;
-    YM_Swap(a, b);
-    
-    NSLog(@"a = %d, b = %d", a, b);
-    
-    
-    NSThread *seperatorThread = [[NSThread alloc] initWithTarget:self selector:@selector(print) object:nil];
-    [seperatorThread start];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        [self performSelector:@selector(outPut) withObject:nil afterDelay:1];
+
+      //  [self performSelectorOnMainThread:@selector(printMain) withObject:nil waitUntilDone:NO];
+        
+    });
     
 }
 
-- (void)print {
+- (void)printSomething:(NSInteger)index name:(NSString *)name {
+    
+    NSLog(@"%f",[[NSDate date] timeIntervalSince1970] - self.currentTime);
    
- 
+    NSLog(@"可以处理这个方法了");
+}
 
+- (void)outPut {
+   
+    
+    for (int i = 0; i < 100; i++) {
+       
+        NSLog(@"------------------");
+    }
+
+}
+
+- (void)printMain {
+
+    for (int i = 0; i < 100000; i++) {
+        
+        NSLog(@"1111111111111111111111111111");
+    }
 }
 
 

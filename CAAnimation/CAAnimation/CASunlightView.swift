@@ -64,7 +64,9 @@ class CASunlightview: UIView {
     }
     
     
+
     
+
     
     
     required init?(coder aDecoder: NSCoder) {

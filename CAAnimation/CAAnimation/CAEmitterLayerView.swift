@@ -64,7 +64,7 @@ class CAEmitterLayerView: UIView {
     
     func cloudy() {
        
-        self.backGroundImageView.image = UIImage(named:"cloudy.png")
+        self.backGroundImageView.image = UIImage(named:"cloudy_back.png")
         let yun = UIImageView(image:UIImage(named:"yun.png"))
         yun.frame = CGRect(x:0,y:0, width:169, height:52)
         
@@ -113,27 +113,27 @@ class CAEmitterLayerView: UIView {
         self.emitter.masksToBounds = true
         self.emitter.emitterShape = kCAEmitterLayerLine
         self.emitter.emitterMode = kCAEmitterLayerSurface
-        self.emitter.emitterSize = self.emitter.frame.size
-        self.emitter.emitterPosition = CGPoint(x:self.frame.size.width / 2.0, y:0)
-        
+        self.emitter.emitterSize = self.bounds.size
+        self.emitter.emitterPosition = CGPoint(x:self.frame.size.width / 2.0, y:-20)
+        self.emitter.renderMode = kCAEmitterLayerAdditive
         
         let emitterCell = CAEmitterCell()
-        emitterCell.contents = UIImage(named: "rain.png")?.cgImage
-        emitterCell.birthRate = 80  //每秒产生120个粒子
+        emitterCell.contents = createRainImage()?.cgImage //UIImage(named: "rain.png")?.cgImage
+        emitterCell.birthRate = 200  //每秒产生120个粒子
         emitterCell.lifetime = 3.0    //存活1秒
         emitterCell.lifetimeRange = 7.0
         
         emitterCell.yAcceleration = 70.0  //给Y方向一个加速度
         emitterCell.xAcceleration = -10.0 //x方向一个加速度
         
-        emitterCell.velocity = 20.0 //初始速度
-        emitterCell.velocityRange = 250.0
+        emitterCell.velocity = 10.0 //初始速度
+        emitterCell.velocityRange = 10.0
         
         emitterCell.emissionLongitude = CGFloat(Double.pi) //向左
         emitterCell.emissionRange = CGFloat(Double.pi / 2) //随机方向 -pi/2 --- pi/2
         
         
-        emitterCell.scale = 0.2
+        emitterCell.scale = 0.8
         emitterCell.scaleRange = 0.3 //0 - 1.6
         emitterCell.scaleSpeed = -0.15  //逐渐变小
         
@@ -147,7 +147,7 @@ class CAEmitterLayerView: UIView {
     
     func sunlight() {
         
-        self.backGroundImageView.image = UIImage(named:"sunlight")
+        self.backGroundImageView.image = UIImage(named:"sunlight_back")
         
 
     }
@@ -156,5 +156,29 @@ class CAEmitterLayerView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func createImage(color:UIColor)->UIImage? {
+        
+        UIGraphicsBeginImageContext(CGSize(width:50, height:50))
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.setStrokeColor(color.cgColor)
+        context?.strokeEllipse(in: CGRect(x:0,y:0,width:50, height:50))
+        context?.fillEllipse(in: CGRect(x:0,y:0,width:50, height:50))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    func createRainImage()->UIImage? {
+        
+        UIGraphicsBeginImageContext(CGSize(width:2, height:16))
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(UIColor.white.cgColor)
+        context?.fill(CGRect(x:0,y:0,width:2, height:16))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

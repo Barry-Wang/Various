@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol printProtocaolDelegate <NSObject>
+
+- (void)printWithName:(NSString *)name age:(NSUInteger)age;
+
+@end
+
 @interface ViewController : UIViewController
 
 

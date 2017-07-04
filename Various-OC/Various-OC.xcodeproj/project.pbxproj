@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */; };
 		4CE1F2A91EF264920048ED8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2A81EF264920048ED8F /* main.m */; };
 		4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2AB1EF264920048ED8F /* AppDelegate.m */; };
 		4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2AE1EF264920048ED8F /* ViewController.m */; };
@@ -15,7 +16,6 @@
 		4CE1F2B71EF264920048ED8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F2B51EF264920048ED8F /* LaunchScreen.storyboard */; };
 		4CE1F2C21EF264920048ED8F /* Various_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2C11EF264920048ED8F /* Various_OCTests.m */; };
 		4CE1F2CD1EF264920048ED8F /* Various_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */; };
-		4CE1F2DD1EF3C5BE0048ED8F /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2DC1EF3C5BE0048ED8F /* TestView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C2F90991F05F11C0086ABA1 /* NSObject+YMExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YMExtend.h"; sourceTree = "<group>"; };
+		4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YMExtend.m"; sourceTree = "<group>"; };
 		4CE1F2A41EF264920048ED8F /* Various-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Various-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE1F2A81EF264920048ED8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CE1F2AA1EF264920048ED8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,8 +55,6 @@
 		4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Various_OCUITests.m; sourceTree = "<group>"; };
 		4CE1F2CE1EF264920048ED8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE1F2DA1EF26F740048ED8F /* YYMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMac.h; sourceTree = "<group>"; };
-		4CE1F2DB1EF3C5BE0048ED8F /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
-		4CE1F2DC1EF3C5BE0048ED8F /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C2F90981F05F0F10086ABA1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4C2F90991F05F11C0086ABA1 /* NSObject+YMExtend.h */,
+				4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		4CE1F29B1EF264920048ED8F = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +114,7 @@
 		4CE1F2A61EF264920048ED8F /* Various-OC */ = {
 			isa = PBXGroup;
 			children = (
+				4C2F90981F05F0F10086ABA1 /* Category */,
 				4CE1F2AA1EF264920048ED8F /* AppDelegate.h */,
 				4CE1F2AB1EF264920048ED8F /* AppDelegate.m */,
 				4CE1F2AD1EF264920048ED8F /* ViewController.h */,
@@ -115,8 +125,6 @@
 				4CE1F2B81EF264920048ED8F /* Info.plist */,
 				4CE1F2A71EF264920048ED8F /* Supporting Files */,
 				4CE1F2DA1EF26F740048ED8F /* YYMac.h */,
-				4CE1F2DB1EF3C5BE0048ED8F /* TestView.h */,
-				4CE1F2DC1EF3C5BE0048ED8F /* TestView.m */,
 			);
 			path = "Various-OC";
 			sourceTree = "<group>";
@@ -280,10 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE1F2DD1EF3C5BE0048ED8F /* TestView.m in Sources */,
 				4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */,
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
 				4CE1F2A91EF264920048ED8F /* main.m in Sources */,
+				4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +525,7 @@
 				4CE1F2D31EF264920048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE1F2D41EF264920048ED8F /* Build configuration list for PBXNativeTarget "Various-OCTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +534,7 @@
 				4CE1F2D61EF264920048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE1F2D71EF264920048ED8F /* Build configuration list for PBXNativeTarget "Various-OCUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +543,7 @@
 				4CE1F2D91EF264920048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

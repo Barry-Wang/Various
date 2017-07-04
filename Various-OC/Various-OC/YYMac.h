@@ -31,7 +31,7 @@
 
 YM_C_EXTERN_BEGIN
 
-#define  YM_Middle(_x_, _small_, _large_)  ( ((_x_) > (_large_)) ? _large_ : ((_x_) < (_small_)) ? (_small_) : (_x_) )
+#define  YM_Middle(_x_, _small_, _large_)   ((_x_) > (_large_)) ? _large_ : ((_x_) < (_small_)) ? (_small_) : (_x_)
 
 
 #define YM_Swap(_a_, _b_) { __typeof__(_a_) _t_ = _a_; (_a_) = (_b_); (_b_) = (_t_); }
@@ -47,6 +47,12 @@ YM_C_EXTERN_BEGIN
 
 #define YMCAssertMainThread() NSCAssert([NSThread isMainThread], @"This method must be called in Main Thread!")
 
+
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
 
 
 YM_C_EXTERN_END
