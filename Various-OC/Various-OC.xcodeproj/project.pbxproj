@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */; };
+		4C75BE9E1F14B41500648CDB /* libVa_Sl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C75BE9D1F14B41500648CDB /* libVa_Sl.a */; };
+		4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C75BEA41F15C8F300648CDB /* NSObject+YMAddForKVO.m */; };
 		4CE1F2A91EF264920048ED8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2A81EF264920048ED8F /* main.m */; };
 		4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2AB1EF264920048ED8F /* AppDelegate.m */; };
 		4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2AE1EF264920048ED8F /* ViewController.m */; };
@@ -38,6 +40,9 @@
 /* Begin PBXFileReference section */
 		4C2F90991F05F11C0086ABA1 /* NSObject+YMExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YMExtend.h"; sourceTree = "<group>"; };
 		4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YMExtend.m"; sourceTree = "<group>"; };
+		4C75BE9D1F14B41500648CDB /* libVa_Sl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVa_Sl.a; path = "../../../Library/Developer/Xcode/DerivedData/Va-cwssnokhyrycaecbcfbvktouoiur/Build/Products/Debug-iphonesimulator/libVa_Sl.a"; sourceTree = "<group>"; };
+		4C75BEA31F15C8F300648CDB /* NSObject+YMAddForKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YMAddForKVO.h"; sourceTree = "<group>"; };
+		4C75BEA41F15C8F300648CDB /* NSObject+YMAddForKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YMAddForKVO.m"; sourceTree = "<group>"; };
 		4CE1F2A41EF264920048ED8F /* Various-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Various-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE1F2A81EF264920048ED8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CE1F2AA1EF264920048ED8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C75BE9E1F14B41500648CDB /* libVa_Sl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +93,18 @@
 			children = (
 				4C2F90991F05F11C0086ABA1 /* NSObject+YMExtend.h */,
 				4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */,
+				4C75BEA31F15C8F300648CDB /* NSObject+YMAddForKVO.h */,
+				4C75BEA41F15C8F300648CDB /* NSObject+YMAddForKVO.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		4C75BE9C1F14B41400648CDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C75BE9D1F14B41500648CDB /* libVa_Sl.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4CE1F29B1EF264920048ED8F = {
@@ -98,6 +114,7 @@
 				4CE1F2C01EF264920048ED8F /* Various-OCTests */,
 				4CE1F2CB1EF264920048ED8F /* Various-OCUITests */,
 				4CE1F2A51EF264920048ED8F /* Products */,
+				4C75BE9C1F14B41400648CDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -290,6 +307,7 @@
 			files = (
 				4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */,
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
+				4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */,
 				4CE1F2A91EF264920048ED8F /* main.m in Sources */,
 				4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */,
 			);
@@ -442,8 +460,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Va_Sl/Va_Sl";
 				INFOPLIST_FILE = "Various-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "barry.Various-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -453,8 +473,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Va_Sl/Va_Sl";
 				INFOPLIST_FILE = "Various-OC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "barry.Various-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

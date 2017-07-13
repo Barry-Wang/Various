@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "YYMac.h"
-
+#import "Va_Sl.h"
+#import "NSObject+YMAddForKVO.h"
 
 @interface ViewController ()<printProtocaolDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
+@property (nonatomic, assign) NSInteger value;
 @end
 
 @implementation ViewController
@@ -19,43 +21,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 60, 100, 100);
+    [button addTarget:self action:@selector(change) forControlEvents:UIControlEventTouchUpInside];
+    button.backgroundColor = [UIColor redColor];
+    [self.view addSubview:button];
     
-
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    self.value = 1;
+    [self addObserverForKeyPath:@"value" block:^(__weak id object, id oldValue, id newValue) {
         
-        [self performSelector:@selector(outPut) withObject:nil afterDelay:1];
-
-      //  [self performSelectorOnMainThread:@selector(printMain) withObject:nil waitUntilDone:NO];
-        
-    });
+        NSLog(@"come here");
+    }];
     
 }
 
-- (void)printSomething:(NSInteger)index name:(NSString *)name {
-    
-    NSLog(@"%f",[[NSDate date] timeIntervalSince1970] - self.currentTime);
+-(void)change {
    
-    NSLog(@"可以处理这个方法了");
+    self.value = 10 - self.value;
 }
 
-- (void)outPut {
-   
-    
-    for (int i = 0; i < 100; i++) {
-       
-        NSLog(@"------------------");
-    }
 
-}
 
-- (void)printMain {
 
-    for (int i = 0; i < 100000; i++) {
-        
-        NSLog(@"1111111111111111111111111111");
-    }
-}
+
+
 
 
 
