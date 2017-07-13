@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C271CC11F17782800A03D53 /* NSData+YMExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C271CC01F17782800A03D53 /* NSData+YMExtend.m */; };
 		4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */; };
 		4C75BE9E1F14B41500648CDB /* libVa_Sl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C75BE9D1F14B41500648CDB /* libVa_Sl.a */; };
 		4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C75BEA41F15C8F300648CDB /* NSObject+YMAddForKVO.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C271CBF1F17782800A03D53 /* NSData+YMExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YMExtend.h"; sourceTree = "<group>"; };
+		4C271CC01F17782800A03D53 /* NSData+YMExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YMExtend.m"; sourceTree = "<group>"; };
 		4C2F90991F05F11C0086ABA1 /* NSObject+YMExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YMExtend.h"; sourceTree = "<group>"; };
 		4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YMExtend.m"; sourceTree = "<group>"; };
 		4C75BE9D1F14B41500648CDB /* libVa_Sl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVa_Sl.a; path = "../../../Library/Developer/Xcode/DerivedData/Va-cwssnokhyrycaecbcfbvktouoiur/Build/Products/Debug-iphonesimulator/libVa_Sl.a"; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				4C2F909A1F05F11C0086ABA1 /* NSObject+YMExtend.m */,
 				4C75BEA31F15C8F300648CDB /* NSObject+YMAddForKVO.h */,
 				4C75BEA41F15C8F300648CDB /* NSObject+YMAddForKVO.m */,
+				4C271CBF1F17782800A03D53 /* NSData+YMExtend.h */,
+				4C271CC01F17782800A03D53 /* NSData+YMExtend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
 				4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */,
 				4CE1F2A91EF264920048ED8F /* main.m in Sources */,
+				4C271CC11F17782800A03D53 /* NSData+YMExtend.m in Sources */,
 				4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
