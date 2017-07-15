@@ -20,28 +20,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-OQ-6HV" customClass="YMTableView" customModule="Various_S" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Mjk-dm-XuB"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pkp-hX-zwQ"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5gY-OQ-6HV" secondAttribute="bottom" id="6Cu-nH-Hsb"/>
-                            <constraint firstItem="5gY-OQ-6HV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Nm5-BO-8Xg"/>
-                            <constraint firstItem="5gY-OQ-6HV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n9j-b7-svp"/>
-                            <constraint firstAttribute="trailing" secondItem="5gY-OQ-6HV" secondAttribute="trailing" id="rHX-58-VLS"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u6R-yo-Ntf"/>
-                    <connections>
-                        <outlet property="tableView" destination="5gY-OQ-6HV" id="I3V-hx-FkG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

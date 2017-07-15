@@ -8,6 +8,7 @@
 
 #import "NSData+YMExtend.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import <zlib.h>
 
 @implementation NSData (YMExtend)
 
@@ -133,6 +134,23 @@
   
     return [self shaData:TWO_TWO_FOUR];
 }
+
+- (NSString *)crc32String {
+   
+   uLong result =  crc32(0, self.bytes, (uint)self.length);
+    return [NSString stringWithFormat:@"%08x", (UInt32)result];
+    
+}
+
+- (uLong)crc32 {
+   
+    return   crc32(0, self.bytes, (uint)self.length);
+}
+
+
+
+
+
 
 
 

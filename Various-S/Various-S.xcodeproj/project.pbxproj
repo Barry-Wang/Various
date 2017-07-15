@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C75BEA71F15EF3F00648CDB /* OTTouchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75BEA61F15EF3F00648CDB /* OTTouchButton.swift */; };
+		4C75BEA91F15F68200648CDB /* OTAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75BEA81F15F68200648CDB /* OTAudioSession.swift */; };
+		4C75BEAE1F15FC2B00648CDB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C75BEAD1F15FC2B00648CDB /* AVFoundation.framework */; };
+		4C75BEB11F16187500648CDB /* speaker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C75BEAF1F16187500648CDB /* speaker@2x.png */; };
+		4C75BEB21F16187500648CDB /* speaker@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C75BEB01F16187500648CDB /* speaker@3x.png */; };
 		4CE1F26A1EF0D3650048ED8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2691EF0D3650048ED8F /* AppDelegate.swift */; };
 		4CE1F26C1EF0D3650048ED8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F26B1EF0D3650048ED8F /* ViewController.swift */; };
 		4CE1F26F1EF0D3650048ED8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F26D1EF0D3650048ED8F /* Main.storyboard */; };
@@ -36,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C75BEA61F15EF3F00648CDB /* OTTouchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTTouchButton.swift; sourceTree = "<group>"; };
+		4C75BEA81F15F68200648CDB /* OTAudioSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTAudioSession.swift; sourceTree = "<group>"; };
+		4C75BEAB1F15F6EB00648CDB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4C75BEAD1F15FC2B00648CDB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4C75BEAF1F16187500648CDB /* speaker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speaker@2x.png"; sourceTree = "<group>"; };
+		4C75BEB01F16187500648CDB /* speaker@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speaker@3x.png"; sourceTree = "<group>"; };
 		4CE1F2661EF0D3650048ED8F /* Various-S.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Various-S.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE1F2691EF0D3650048ED8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CE1F26B1EF0D3650048ED8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C75BEAE1F15FC2B00648CDB /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C75BEAA1F15F6EB00648CDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C75BEAD1F15FC2B00648CDB /* AVFoundation.framework */,
+				4C75BEAB1F15F6EB00648CDB /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4CE1F25D1EF0D3650048ED8F = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +106,7 @@
 				4CE1F27D1EF0D3650048ED8F /* Various-STests */,
 				4CE1F2881EF0D3650048ED8F /* Various-SUITests */,
 				4CE1F2671EF0D3650048ED8F /* Products */,
+				4C75BEAA1F15F6EB00648CDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +123,8 @@
 		4CE1F2681EF0D3650048ED8F /* Various-S */ = {
 			isa = PBXGroup;
 			children = (
+				4C75BEAF1F16187500648CDB /* speaker@2x.png */,
+				4C75BEB01F16187500648CDB /* speaker@3x.png */,
 				4CE1F2691EF0D3650048ED8F /* AppDelegate.swift */,
 				4CE1F26B1EF0D3650048ED8F /* ViewController.swift */,
 				4CE1F26D1EF0D3650048ED8F /* Main.storyboard */,
@@ -109,6 +133,8 @@
 				4CE1F2751EF0D3650048ED8F /* Info.plist */,
 				4CE1F2971EF125490048ED8F /* YMTableView.swift */,
 				4CE1F2991EF22FF30048ED8F /* YMButton.swift */,
+				4C75BEA61F15EF3F00648CDB /* OTTouchButton.swift */,
+				4C75BEA81F15F68200648CDB /* OTAudioSession.swift */,
 			);
 			path = "Various-S";
 			sourceTree = "<group>";
@@ -198,6 +224,7 @@
 				TargetAttributes = {
 					4CE1F2651EF0D3650048ED8F = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = P83KAV8SC6;
 						ProvisioningStyle = Automatic;
 					};
 					4CE1F2791EF0D3650048ED8F = {
@@ -239,7 +266,9 @@
 			files = (
 				4CE1F2741EF0D3650048ED8F /* LaunchScreen.storyboard in Resources */,
 				4CE1F2711EF0D3650048ED8F /* Assets.xcassets in Resources */,
+				4C75BEB11F16187500648CDB /* speaker@2x.png in Resources */,
 				4CE1F26F1EF0D3650048ED8F /* Main.storyboard in Resources */,
+				4C75BEB21F16187500648CDB /* speaker@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE1F26C1EF0D3650048ED8F /* ViewController.swift in Sources */,
+				4C75BEA71F15EF3F00648CDB /* OTTouchButton.swift in Sources */,
+				4C75BEA91F15F68200648CDB /* OTAudioSession.swift in Sources */,
 				4CE1F2981EF125490048ED8F /* YMTableView.swift in Sources */,
 				4CE1F26A1EF0D3650048ED8F /* AppDelegate.swift in Sources */,
 				4CE1F29A1EF22FF30048ED8F /* YMButton.swift in Sources */,
@@ -421,10 +452,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = P83KAV8SC6;
 				INFOPLIST_FILE = "Various-S/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "barry.Various-S";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -433,10 +468,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = P83KAV8SC6;
 				INFOPLIST_FILE = "Various-S/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "barry.Various-S";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -514,6 +553,7 @@
 				4CE1F2901EF0D3650048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE1F2911EF0D3650048ED8F /* Build configuration list for PBXNativeTarget "Various-STests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +562,7 @@
 				4CE1F2931EF0D3650048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE1F2941EF0D3650048ED8F /* Build configuration list for PBXNativeTarget "Various-SUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +571,7 @@
 				4CE1F2961EF0D3650048ED8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
