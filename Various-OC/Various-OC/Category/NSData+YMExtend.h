@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonCrypto.h>
+#import <zlib.h>
 
 typedef NS_ENUM(NSInteger, SHACATEGORY) {
   
@@ -21,5 +23,16 @@ typedef NS_ENUM(NSInteger, SHACATEGORY) {
 @interface NSData (YMExtend)
 
 - (NSString *)md5String;
+- (NSData *)shaData;
+- (NSString *)shaString:(SHACATEGORY)category;
+- (NSData *)shaData:(SHACATEGORY)category;
 
+/*   must import lib.tbd
+ */
+- (uLong)crc32;
+- (NSData *)aes256EncryptWithKey:(NSData *)key iv:(NSData *)iv;
+- (NSData *)deCryptWithKey:(NSData *)key iv:(NSData *)iv;
+
+-(NSString *)utf8String;
+-(NSString *)hexString;
 @end

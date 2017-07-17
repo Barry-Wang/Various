@@ -10,6 +10,7 @@
 #import "YYMac.h"
 #import "Va_Sl.h"
 #import "NSObject+YMAddForKVO.h"
+#import "NSData+YMExtend.h"
 
 @interface ViewController ()<printProtocaolDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
@@ -19,21 +20,11 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 60, 100, 100);
-    [button addTarget:self action:@selector(change) forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor redColor];
-    [self.view addSubview:button];
-    
-    
-    self.value = 1;
-    [self addObserverForKeyPath:@"value" block:^(__weak id object, id oldValue, id newValue) {
-        
-        NSLog(@"come here");
-    }];
-    
+    NSString *str = @"Hello,World";
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@",[data hexString]);
 }
 
 -(void)change {
