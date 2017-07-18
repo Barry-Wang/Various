@@ -207,6 +207,33 @@
     return  result.copy;
 }
 
+-(NSData *)dataWithHexString:(NSString *)hexString {
+    
+    hexString = [hexString stringByTrimmingCharactersInSet:[NSCharacterSet  whitespaceAndNewlineCharacterSet]];
+    if (hexString.length == 0) {
+        
+        return nil;
+    }
+    unichar *bytes = malloc(sizeof(unichar) * hexString.length);
+    if (!bytes) {
+        
+        return nil;
+    }
+    NSMutableData *result;
+    [hexString getCharacters:bytes];
+    unsigned char finalBytes;
+    char numbers[3] = {'0', '\0', '\0'};
+    for (int i = 0; i < hexString.length / 2 ; i++) {
+        
+        numbers[0] = bytes[i * 2];
+        numbers[1] = bytes[i * 2 + 1];
+        finalBytes  = strtol(numbers, NULL, 16);
+        [result appendBytes:&finalBytes length:1];
+    }
+    
+    return result;
+}
+
 
 
 
