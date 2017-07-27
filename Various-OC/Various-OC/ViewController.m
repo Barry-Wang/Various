@@ -11,6 +11,7 @@
 #import "Va_Sl.h"
 #import "NSObject+YMAddForKVO.h"
 #import "NSData+YMExtend.h"
+#import "YMTopTab.h"
 
 @interface ViewController ()<printProtocaolDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
@@ -21,11 +22,18 @@
 
 - (void)viewDidLoad {
     
-    [super viewDidLoad];
-    NSString *str = @"Hello,World";
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",[data hexString]);
+//    [super viewDidLoad];
+//    NSString *str = @"Hello,World";
+//    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",[data hexString]);
+    
+    
+    YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
+    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目"];
+    [self.view addSubview:tab];
+    
 }
+
 
 -(void)change {
    

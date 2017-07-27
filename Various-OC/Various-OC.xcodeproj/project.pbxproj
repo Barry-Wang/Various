@@ -20,6 +20,8 @@
 		4CE1F2B71EF264920048ED8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F2B51EF264920048ED8F /* LaunchScreen.storyboard */; };
 		4CE1F2C21EF264920048ED8F /* Various_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2C11EF264920048ED8F /* Various_OCTests.m */; };
 		4CE1F2CD1EF264920048ED8F /* Various_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */; };
+		CAB094941F2751A700300875 /* YMTopTab.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB094931F2751A700300875 /* YMTopTab.m */; };
+		CAB094971F2760EE00300875 /* YMTopTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB094961F2760EE00300875 /* YMTopTabCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Various_OCUITests.m; sourceTree = "<group>"; };
 		4CE1F2CE1EF264920048ED8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE1F2DA1EF26F740048ED8F /* YYMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMac.h; sourceTree = "<group>"; };
+		CAB094921F2751A700300875 /* YMTopTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTopTab.h; sourceTree = "<group>"; };
+		CAB094931F2751A700300875 /* YMTopTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTopTab.m; sourceTree = "<group>"; };
+		CAB094951F2760EE00300875 /* YMTopTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTopTabCell.h; sourceTree = "<group>"; };
+		CAB094961F2760EE00300875 /* YMTopTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTopTabCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 		4CE1F2A61EF264920048ED8F /* Various-OC */ = {
 			isa = PBXGroup;
 			children = (
+				CAB094911F2751A700300875 /* UI */,
 				4C2F90981F05F0F10086ABA1 /* Category */,
 				4CE1F2AA1EF264920048ED8F /* AppDelegate.h */,
 				4CE1F2AB1EF264920048ED8F /* AppDelegate.m */,
@@ -179,6 +186,17 @@
 				4CE1F2CE1EF264920048ED8F /* Info.plist */,
 			);
 			path = "Various-OCUITests";
+			sourceTree = "<group>";
+		};
+		CAB094911F2751A700300875 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CAB094921F2751A700300875 /* YMTopTab.h */,
+				CAB094931F2751A700300875 /* YMTopTab.m */,
+				CAB094951F2760EE00300875 /* YMTopTabCell.h */,
+				CAB094961F2760EE00300875 /* YMTopTabCell.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +333,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */,
+				CAB094971F2760EE00300875 /* YMTopTabCell.m in Sources */,
+				CAB094941F2751A700300875 /* YMTopTab.m in Sources */,
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
 				4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */,
 				4CE1F2A91EF264920048ED8F /* main.m in Sources */,
