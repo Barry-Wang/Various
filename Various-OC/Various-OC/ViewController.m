@@ -30,6 +30,7 @@
     
     YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
     tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目"];
+    tab.fillout = NO;
     [self.view addSubview:tab];
     
 }
