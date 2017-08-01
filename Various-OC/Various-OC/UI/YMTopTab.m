@@ -17,6 +17,7 @@
 @property (nonatomic, assign) BOOL byendWidth;  // wether the total lenght of the titles byend the collectionview width
 @property (nonatomic, assign) CGFloat notByendGap; // the lefted width divide the titles count
 @property (nonatomic, assign) CGSize titleSize;
+@property (nonatomic, assign) BOOL isFirstSelected; // if you set the selected in the initWithFrame, when  call didSelect, it will never call didDeselected, so this variable indicate that wether it called didDeselected.
 
 @end
 
@@ -36,6 +37,10 @@
         
         self.normalFont = [UIFont systemFontOfSize:18.0f];
         self.selectedFont = [UIFont systemFontOfSize:18.0f];
+        self.normalColor = [UIColor blackColor];
+        self.selectedColor = [UIColor redColor];
+        self.isFirstSelected = YES;
+        
     }
     
     return self;
@@ -144,7 +149,10 @@
 }
 
 
-#pragma  mark CollectionView Delegate
+
+
+
+#pragma  mark CollectionView Delegate and DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
@@ -156,6 +164,7 @@
   
     YMTopTabCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"YMTopTabCell" forIndexPath:indexPath];
     cell.titleLabel.text = self.titles[indexPath.row];
+    [self setCellSelectedStatus:cell selected:self.selectedIndex == indexPath.row];
     return cell;
 }
 
@@ -178,5 +187,44 @@
 
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.isFirstSelected) {
+        
+        YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
+        [self setCellSelectedStatus:cell selected:NO];
+    }
+    
+    YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    self.selectedIndex = indexPath.row;
+    [self setCellSelectedStatus:cell selected:YES];
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+   
+    YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [self setCellSelectedStatus:cell selected:NO];
+    self.isFirstSelected = NO;
+}
+
+- (void)setCellSelectedStatus:(YMTopTabCell *)cell selected:(BOOL)selected {
+   
+    if (selected) {
+        
+        cell.titleLabel.font = self.selectedFont;
+        cell.titleLabel.textColor = self.selectedColor;
+        
+    } else {
+    
+        cell.titleLabel.font = self.normalFont;
+        cell.titleLabel.textColor = self.normalColor;
+    }
+}
+
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+   
+    _selectedIndex = selectedIndex;
+}
 
 @end

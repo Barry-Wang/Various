@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) UIFont *normalFont;
 @property (nonatomic, strong) UIFont *selectedFont;
+@property (nonatomic, strong) UIColor *normalColor;
+@property (nonatomic, strong) UIColor *selectedColor;
 
 @property (nonatomic, assign) CGFloat topGap;     // the gap between the title top and self top
 @property (nonatomic, assign) CGFloat bottomGap;  // the gap between the title bottom and self bottom
@@ -29,4 +31,7 @@
  
  */
 @property (nonatomic, assign) CGFloat minimumInteritemSpacing;
+
+
+@property (nonatomic, assign) NSUInteger selectedIndex;
 @end
