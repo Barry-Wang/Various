@@ -17,7 +17,14 @@
 @property (nonatomic, assign) BOOL byendWidth;  // wether the total lenght of the titles byend the collectionview width
 @property (nonatomic, assign) CGFloat notByendGap; // the lefted width divide the titles count
 @property (nonatomic, assign) CGSize titleSize;
-@property (nonatomic, assign) BOOL isFirstSelected; // if you set the selected in the initWithFrame, when  call didSelect, it will never call didDeselected, so this variable indicate that wether it called didDeselected.
+
+/* if you set the selected in the initWithFrame, when  call didSelect, it will never call didDeselected, so this variable indicate that wether it called didDeselected.
+ */
+@property (nonatomic, assign) BOOL isFirstSelected;
+
+
+@property (nonatomic, strong) UIView *sliderView;
+
 
 @end
 
@@ -40,6 +47,8 @@
         self.normalColor = [UIColor blackColor];
         self.selectedColor = [UIColor redColor];
         self.isFirstSelected = YES;
+        self.style = BIGGER;
+        self.sliderHeight = 5;
         
     }
     
@@ -59,7 +68,7 @@
     size.height = titleSize.height;
     
     [self calculateWidth];
-    
+ 
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height + self.topGap + self.bottomGap);
     
     [self setNeedsLayout];
@@ -196,6 +205,7 @@
     }
     
     YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    NSLog(@"cell.frame = %@",NSStringFromCGRect(cell.frame));
     self.selectedIndex = indexPath.row;
     [self setCellSelectedStatus:cell selected:YES];
     
@@ -222,9 +232,40 @@
     }
 }
 
+- (void)updateSelfFrame {
+    
+    if (self.style == BIGGER) {
+        
+        
+    }
+}
+
+#pragma mark ---Setter and Getter
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
    
     _selectedIndex = selectedIndex;
 }
+
+- (void)setStyle:(YMTopTabStyle)style {
+   
+    if (style == SLIDER || style == BiGSLIDER) {
+        
+        if (!self.sliderView) {
+            self.sliderView = [[UIView alloc] init];
+            [self.collectionView addSubview:self.sliderView];
+            [self setNeedsLayout];
+        }
+    } else {
+       
+        if (self.sliderView) {
+            
+            [self.sliderView removeFromSuperview];
+            self.sliderView = nil;
+            [self setNeedsLayout];
+        }
+    }
+}
+
+
 
 @end

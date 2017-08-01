@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, YMTopTabStyle) {
+   
+    BIGGER = 0,
+    
+    SLIDER = 1,
+    
+    BiGSLIDER = 2,
+    
+    
+};
+
+
+
 @interface YMTopTab : UIView
 @property (nonatomic, strong) NSArray *titles;      //The showd titles
 
@@ -18,6 +31,8 @@
 
 @property (nonatomic, assign) CGFloat topGap;     // the gap between the title top and self top
 @property (nonatomic, assign) CGFloat bottomGap;  // the gap between the title bottom and self bottom
+
+@property (nonatomic, assign) YMTopTabStyle style;
 
 /*
   wether the titles fill out all the width when the titles total length less then the width.  default YES
@@ -34,4 +49,6 @@
 
 
 @property (nonatomic, assign) NSUInteger selectedIndex;
+
+@property (nonatomic, assign) CGFloat sliderHeight;
 @end
