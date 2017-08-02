@@ -69,7 +69,7 @@
     
     [self calculateWidth];
  
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height + self.topGap + self.bottomGap);
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height + self.topGap + self.bottomGap + self.sliderHeight);
     
     [self setNeedsLayout];
     
@@ -133,18 +133,10 @@
 - (void)layoutSubviews {
    
     [super layoutSubviews];
-    
-    if(self.style == BIGGER) {
-    
-        self.collectionView.frame = CGRectMake(0, self.topGap, self.frame.size.width, self.frame.size.height - self.topGap - self.bottomGap);
-        
-    } else  {
-      
-        self.collectionView.frame = CGRectMake(0, self.topGap, self.frame.size.width, self.frame.size.height - self.topGap - self.bottomGap - self.sliderHeight);
-        
-
-    }
+    self.collectionView.frame = self.bounds;
 }
+
+
 - (void)creatCollectionView {
    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -156,7 +148,7 @@
     [collectionView registerClass:[YMTopTabCell class] forCellWithReuseIdentifier:@"YMTopTabCell"];
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    collectionView.backgroundColor = [UIColor clearColor];
+    collectionView.backgroundColor = [UIColor greenColor];
     collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView = collectionView;
     
@@ -187,7 +179,7 @@
             
             CGRect rect  = cell.frame;
             CGFloat beginGap = 0;
-            if (indexPath.row == 0) {
+            if (indexPath.row == 0 || indexPath.row == self.titles.count - 1) {
                 beginGap = 2;
             }
             self.sliderView.frame = CGRectMake(cell.frame.origin.x + beginGap, self.frame.size.height - self.sliderHeight, rect.size.width - 2 *beginGap, self.sliderHeight);
@@ -232,7 +224,7 @@
         
         CGRect rect  = cell.frame;
         CGFloat beginGap = 0;
-        if (indexPath.row == 0) {
+        if (indexPath.row == 0 || indexPath.row == self.titles.count - 1) {
             beginGap = 2;
         }
         [UIView animateWithDuration:0.25 animations:^{
@@ -243,7 +235,34 @@
         }];
     }
     
-}
+    
+    CGPoint center =   [self convertPoint:cell.center fromView:self.collectionView];
+    
+    CGFloat maxScrollX = self.collectionView.contentSize.width - self.collectionView.frame.size.width;
+    
+    CGFloat deltaX = center.x - self.bounds.size.width / 2;
+
+
+    if (center.x > self.bounds.size.width  / 2) {
+        
+        
+        
+            [UIView animateWithDuration:0.25 animations:^{
+                
+                self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x + deltaX > maxScrollX ? maxScrollX : self.collectionView.contentOffset.x + deltaX, 0);
+            }];
+
+        } else if (center.x < self.bounds.size.width / 2) {
+           
+            [UIView animateWithDuration:0.25 animations:^{
+                
+                self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x + deltaX < 0 ? 0 : self.collectionView.contentOffset.x + deltaX, 0);
+            }];
+
+        
+        }
+        
+    }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
    
@@ -297,7 +316,7 @@
         if (!self.sliderView) {
             self.sliderView = [[UIView alloc] init];
             self.sliderView.backgroundColor = [UIColor redColor];
-            [self addSubview:self.sliderView];
+            [self.collectionView addSubview:self.sliderView];
             [self updateSelfFrame];
             [self setNeedsLayout];
         }

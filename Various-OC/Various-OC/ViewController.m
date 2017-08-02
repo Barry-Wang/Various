@@ -29,8 +29,8 @@
     
     
     YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
-    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目"];
-    tab.fillout = NO;
+    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
+ //   tab.fillout = NO;
     tab.style = SLIDER;
     [self.view addSubview:tab];
     
