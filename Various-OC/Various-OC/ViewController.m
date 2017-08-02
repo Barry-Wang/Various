@@ -13,7 +13,7 @@
 #import "NSData+YMExtend.h"
 #import "YMTopTab.h"
 
-@interface ViewController ()<printProtocaolDelegate>
+@interface ViewController ()<printProtocaolDelegate, YMTopTabDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
 @property (nonatomic, assign) NSInteger value;
 @end
@@ -30,6 +30,7 @@
     
     YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
     tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
+    tab.delegate = self;
  //   tab.fillout = NO;
     tab.style = SLIDER;
     [self.view addSubview:tab];
@@ -40,6 +41,11 @@
 -(void)change {
    
     self.value = 10 - self.value;
+}
+
+- (void)didSelecteItemAtIndex:(NSUInteger)index title:(NSString *)title {
+    
+    NSLog(@"index = %d, titile = %@", index, title);
 }
 
 

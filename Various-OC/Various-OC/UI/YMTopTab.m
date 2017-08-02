@@ -183,6 +183,7 @@
                 beginGap = 2;
             }
             self.sliderView.frame = CGRectMake(cell.frame.origin.x + beginGap, self.frame.size.height - self.sliderHeight, rect.size.width - 2 *beginGap, self.sliderHeight);
+            self.selectedIndex = self.selectedIndex;
         }
     }
     return cell;
@@ -305,6 +306,12 @@
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
    
     _selectedIndex = selectedIndex;
+    if ([self.delegate respondsToSelector:@selector(didSelecteItemAtIndex:title:)] && self.titles.count > 0) {
+        
+        
+        [self.delegate didSelecteItemAtIndex:selectedIndex title:self.titles[_selectedIndex]];
+    }
+    
 }
 
 - (void)setStyle:(YMTopTabStyle)style {

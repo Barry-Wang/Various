@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YMTopTabDelegate <NSObject>
+
+- (void)didSelecteItemAtIndex:(NSUInteger)index title:(NSString *)title;
+
+@end
+
+
+
 typedef NS_ENUM(NSInteger, YMTopTabStyle) {
    
     BIGGER = 0,
@@ -51,4 +59,6 @@ typedef NS_ENUM(NSInteger, YMTopTabStyle) {
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
 @property (nonatomic, assign) CGFloat sliderHeight;
+
+@property (nonatomic, assign) id<YMTopTabDelegate> delegate;
 @end
