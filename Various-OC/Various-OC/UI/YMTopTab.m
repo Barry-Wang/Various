@@ -48,7 +48,7 @@
         self.selectedColor = [UIColor redColor];
         self.isFirstSelected = YES;
         self.style = BIGGER;
-        self.sliderHeight = 5;
+        self.sliderHeight = 3;
         
     }
     
@@ -82,9 +82,7 @@
     
     if (self.titles.count > 0) {
         
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.titleSize.height + self.topGap + self.bottomGap);
-        
-        [self setNeedsLayout];
+        [self updateSelfFrame];
         [self.collectionView reloadData];
     }
 }
@@ -96,9 +94,7 @@
     
     if (self.titles.count > 0) {
         
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.titleSize.height + self.topGap + self.bottomGap);
-        
-        [self setNeedsLayout];
+        [self updateSelfFrame];
         [self.collectionView reloadData];
     }
 }
@@ -137,7 +133,17 @@
 - (void)layoutSubviews {
    
     [super layoutSubviews];
-    self.collectionView.frame = CGRectMake(0, self.topGap, self.frame.size.width, self.frame.size.height - self.topGap - self.bottomGap);
+    
+    if(self.style == BIGGER) {
+    
+        self.collectionView.frame = CGRectMake(0, self.topGap, self.frame.size.width, self.frame.size.height - self.topGap - self.bottomGap);
+        
+    } else  {
+      
+        self.collectionView.frame = CGRectMake(0, self.topGap, self.frame.size.width, self.frame.size.height - self.topGap - self.bottomGap - self.sliderHeight);
+        
+
+    }
 }
 - (void)creatCollectionView {
    
@@ -173,7 +179,20 @@
   
     YMTopTabCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"YMTopTabCell" forIndexPath:indexPath];
     cell.titleLabel.text = self.titles[indexPath.row];
+    
     [self setCellSelectedStatus:cell selected:self.selectedIndex == indexPath.row];
+    if (indexPath.row == self.selectedIndex) {
+        
+        if (self.style != BIGGER) {
+            
+            CGRect rect  = cell.frame;
+            CGFloat beginGap = 0;
+            if (indexPath.row == 0) {
+                beginGap = 2;
+            }
+            self.sliderView.frame = CGRectMake(cell.frame.origin.x + beginGap, self.frame.size.height - self.sliderHeight, rect.size.width - 2 *beginGap, self.sliderHeight);
+        }
+    }
     return cell;
 }
 
@@ -205,9 +224,24 @@
     }
     
     YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    NSLog(@"cell.frame = %@",NSStringFromCGRect(cell.frame));
     self.selectedIndex = indexPath.row;
     [self setCellSelectedStatus:cell selected:YES];
+    
+    
+    if (self.style != BIGGER) {
+        
+        CGRect rect  = cell.frame;
+        CGFloat beginGap = 0;
+        if (indexPath.row == 0) {
+            beginGap = 2;
+        }
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            
+  
+            self.sliderView.frame = CGRectMake(cell.frame.origin.x + beginGap, self.frame.size.height - self.sliderHeight, rect.size.width - 2 * beginGap, self.sliderHeight);
+        }];
+    }
     
 }
 
@@ -236,7 +270,15 @@
     
     if (self.style == BIGGER) {
         
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.titleSize.height + self.topGap + self.bottomGap);
         
+        [self setNeedsLayout];
+        
+    } else {
+    
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.titleSize.height + self.topGap + self.bottomGap + self.sliderHeight);
+        
+        [self setNeedsLayout];
     }
 }
 
@@ -248,17 +290,21 @@
 
 - (void)setStyle:(YMTopTabStyle)style {
    
+    _style = style;
+    
     if (style == SLIDER || style == BiGSLIDER) {
         
         if (!self.sliderView) {
             self.sliderView = [[UIView alloc] init];
-            [self.collectionView addSubview:self.sliderView];
+            self.sliderView.backgroundColor = [UIColor redColor];
+            [self addSubview:self.sliderView];
+            [self updateSelfFrame];
             [self setNeedsLayout];
         }
     } else {
        
         if (self.sliderView) {
-            
+            [self updateSelfFrame];
             [self.sliderView removeFromSuperview];
             self.sliderView = nil;
             [self setNeedsLayout];
