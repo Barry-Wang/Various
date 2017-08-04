@@ -14,9 +14,11 @@
 #import "YMTopTab.h"
 #import "OTDictionary.h"
 
-@interface ViewController ()<printProtocaolDelegate, YMTopTabDelegate>
+@interface ViewController ()<printProtocaolDelegate, YMTopTabDelegate, UIScrollViewDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
 @property (nonatomic, assign) NSInteger value;
+@property (nonatomic, strong) NSArray *colors;
+@property (nonatomic, strong) YMTopTab *topTab;
 @end
 
 @implementation ViewController
@@ -29,20 +31,33 @@
 //    NSLog(@"%@",[data hexString]);
     
     
-//    YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
-//    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
-//    tab.delegate = self;
-// //   tab.fillout = NO;
-//    tab.style = SLIDER;
-//    [self.view addSubview:tab];
+    YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
+    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
+    tab.selectedFont = [UIFont systemFontOfSize:18.0];
+    tab.delegate = self;
+ //   tab.fillout = NO;
+    tab.style = BiGSLIDER;
+    [self.view addSubview:tab];
     
-    OTDictionary *dict = [[OTDictionary alloc] initWithDictionary:@{@"11":@"yaoming"}];
-    NSLog(@"%@",dict[@"11"]);
+    self.topTab = tab;
     
-    [dict setForKey:@"456" value:nil defaultValue:@"djkldkasjdaskdlsakld"];
-
+    self.colors = @[[UIColor redColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor], [UIColor yellowColor], [UIColor grayColor], [UIColor redColor], [UIColor greenColor]];
     
-  NSLog(@"===%@",  [dict objectForKey:@"34" defaultValue:@"1234"]) ;
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 140, self.view.frame.size.width, self.view.frame.size.height - 140)];
+    scrollView.contentSize = CGSizeMake(8 * self.view.frame.size.width, scrollView.frame.size.height);
+    for (int i = 0; i < 8; i++) {
+        
+        UIView *view = [[UIView alloc] initWithFrame: CGRectMake(i * scrollView.bounds.size.width, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
+        view.backgroundColor = self.colors[i];
+        [scrollView addSubview:view];
+        
+    }
+    scrollView.pagingEnabled = YES;
+    
+    scrollView.delegate = self;
+    
+    [self.view addSubview:scrollView];
+    
     
 }
 
@@ -54,11 +69,19 @@
 
 - (void)didSelecteItemAtIndex:(NSUInteger)index title:(NSString *)title {
     
-    NSLog(@"index = %d, titile = %@", index, title);
+    
 }
 
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+   
+    [self.topTab adpatScrollViewDidScroll:scrollView];
+}
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+  
+    [self.topTab adpatScrollViewDidEndScroll:scrollView];
+}
 
 
 

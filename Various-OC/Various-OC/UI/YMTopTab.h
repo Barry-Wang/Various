@@ -61,4 +61,8 @@ typedef NS_ENUM(NSInteger, YMTopTabStyle) {
 @property (nonatomic, assign) CGFloat sliderHeight;
 
 @property (nonatomic, assign) id<YMTopTabDelegate> delegate;
+
+- (void)adpatScrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)adpatScrollViewDidEndScroll:(UIScrollView *)scrollView;
+
 @end

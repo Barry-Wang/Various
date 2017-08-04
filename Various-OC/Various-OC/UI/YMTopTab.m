@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) UIView *sliderView;
 
+@property (nonatomic, assign) CGFloat lastContentOffset;
+
 
 @end
 
@@ -42,8 +44,8 @@
         self.bottomGap = 4;
         self.fillout = YES;
         
-        self.normalFont = [UIFont systemFontOfSize:18.0f];
-        self.selectedFont = [UIFont systemFontOfSize:18.0f];
+        self.normalFont = [UIFont systemFontOfSize:14.0f];
+        self.selectedFont = [UIFont systemFontOfSize:14.0f];
         self.normalColor = [UIColor blackColor];
         self.selectedColor = [UIColor redColor];
         self.isFirstSelected = YES;
@@ -321,6 +323,7 @@
     if (style == SLIDER || style == BiGSLIDER) {
         
         if (!self.sliderView) {
+            
             self.sliderView = [[UIView alloc] init];
             self.sliderView.backgroundColor = [UIColor redColor];
             [self.collectionView addSubview:self.sliderView];
@@ -330,12 +333,25 @@
     } else {
        
         if (self.sliderView) {
+            
             [self updateSelfFrame];
             [self.sliderView removeFromSuperview];
             self.sliderView = nil;
             [self setNeedsLayout];
         }
     }
+}
+
+
+- (void)adpatScrollViewDidScroll:(UIScrollView *)scrollView {
+
+    NSLog(@"deltx = %f", scrollView.contentOffset.x - self.lastContentOffset);
+    NSLog(@"scale = %f", (scrollView.contentOffset.x - self.lastContentOffset) / scrollView.bounds.size.width);
+}
+
+- (void)adpatScrollViewDidEndScroll:(UIScrollView *)scrollView {
+  
+    self.lastContentOffset = scrollView.contentOffset.x;
 }
 
 
