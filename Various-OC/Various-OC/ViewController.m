@@ -12,6 +12,7 @@
 #import "NSObject+YMAddForKVO.h"
 #import "NSData+YMExtend.h"
 #import "YMTopTab.h"
+#import "OTDictionary.h"
 
 @interface ViewController ()<printProtocaolDelegate, YMTopTabDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
@@ -28,12 +29,20 @@
 //    NSLog(@"%@",[data hexString]);
     
     
-    YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
-    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
-    tab.delegate = self;
- //   tab.fillout = NO;
-    tab.style = SLIDER;
-    [self.view addSubview:tab];
+//    YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
+//    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
+//    tab.delegate = self;
+// //   tab.fillout = NO;
+//    tab.style = SLIDER;
+//    [self.view addSubview:tab];
+    
+    OTDictionary *dict = [[OTDictionary alloc] initWithDictionary:@{@"11":@"yaoming"}];
+    NSLog(@"%@",dict[@"11"]);
+    
+    [dict setForKey:@"456" value:nil defaultValue:@"djkldkasjdaskdlsakld"];
+
+    
+  NSLog(@"===%@",  [dict objectForKey:@"34" defaultValue:@"1234"]) ;
     
 }
 

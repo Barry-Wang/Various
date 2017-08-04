@@ -20,6 +20,7 @@
 		4CE1F2B71EF264920048ED8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1F2B51EF264920048ED8F /* LaunchScreen.storyboard */; };
 		4CE1F2C21EF264920048ED8F /* Various_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2C11EF264920048ED8F /* Various_OCTests.m */; };
 		4CE1F2CD1EF264920048ED8F /* Various_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */; };
+		CA451E3E1F344E6000C3F7A0 /* OTDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CA451E3D1F344E6000C3F7A0 /* OTDictionary.m */; };
 		CAB094941F2751A700300875 /* YMTopTab.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB094931F2751A700300875 /* YMTopTab.m */; };
 		CAB094971F2760EE00300875 /* YMTopTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB094961F2760EE00300875 /* YMTopTabCell.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,8 @@
 		4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Various_OCUITests.m; sourceTree = "<group>"; };
 		4CE1F2CE1EF264920048ED8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE1F2DA1EF26F740048ED8F /* YYMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMac.h; sourceTree = "<group>"; };
+		CA451E3C1F344E6000C3F7A0 /* OTDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTDictionary.h; sourceTree = "<group>"; };
+		CA451E3D1F344E6000C3F7A0 /* OTDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTDictionary.m; sourceTree = "<group>"; };
 		CAB094921F2751A700300875 /* YMTopTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTopTab.h; sourceTree = "<group>"; };
 		CAB094931F2751A700300875 /* YMTopTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTopTab.m; sourceTree = "<group>"; };
 		CAB094951F2760EE00300875 /* YMTopTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTopTabCell.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				4C75BEA41F15C8F300648CDB /* NSObject+YMAddForKVO.m */,
 				4C271CBF1F17782800A03D53 /* NSData+YMExtend.h */,
 				4C271CC01F17782800A03D53 /* NSData+YMExtend.m */,
+				CA451E3C1F344E6000C3F7A0 /* OTDictionary.h */,
+				CA451E3D1F344E6000C3F7A0 /* OTDictionary.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			files = (
 				4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */,
 				CAB094971F2760EE00300875 /* YMTopTabCell.m in Sources */,
+				CA451E3E1F344E6000C3F7A0 /* OTDictionary.m in Sources */,
 				CAB094941F2751A700300875 /* YMTopTab.m in Sources */,
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
 				4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */,
