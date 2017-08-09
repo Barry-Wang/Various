@@ -18,9 +18,8 @@
 @property (nonatomic, assign) CGFloat notByendGap; // the lefted width divide the titles count
 @property (nonatomic, assign) CGSize titleSize;
 
-/* if you set the selected in the initWithFrame, when  call didSelect, it will never call didDeselected, so this variable indicate that wether it called didDeselected.
- */
-@property (nonatomic, assign) BOOL isFirstSelected;
+
+@property (nonatomic, assign) BOOL lastSelectedByTap;
 
 
 @property (nonatomic, strong) UIView *sliderView;
@@ -39,7 +38,6 @@
 
         [self creatCollectionView];
         
-        self.backgroundColor = [UIColor yellowColor];
         self.topGap = 5;
         self.bottomGap = 4;
         self.fillout = YES;
@@ -48,9 +46,10 @@
         self.selectedFont = [UIFont systemFontOfSize:14.0f];
         self.normalColor = [UIColor blackColor];
         self.selectedColor = [UIColor redColor];
-        self.isFirstSelected = YES;
+        self.lastSelectedByTap = NO;
         self.style = BIGGER;
         self.sliderHeight = 3;
+        self.scrollingChangFont = YES;
         
     }
     
@@ -150,7 +149,7 @@
     [collectionView registerClass:[YMTopTabCell class] forCellWithReuseIdentifier:@"YMTopTabCell"];
     collectionView.delegate = self;
     collectionView.dataSource = self;
-    collectionView.backgroundColor = [UIColor greenColor];
+    collectionView.backgroundColor = [UIColor clearColor];
     collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView = collectionView;
     
@@ -212,7 +211,21 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.isFirstSelected) {
+    [self setSelectedCellStatus:indexPath];
+    self.lastSelectedByTap = YES;
+    self.adpotScrollView.contentOffset = CGPointMake(indexPath.row * self.adpotScrollView.bounds.size.width, 0);
+
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+   
+    YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [self setCellSelectedStatus:cell selected:NO];
+}
+
+- (void)setSelectedCellStatus:(NSIndexPath *)indexPath {
+  
+    if (!self.lastSelectedByTap) {
         
         YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
         [self setCellSelectedStatus:cell selected:NO];
@@ -222,6 +235,14 @@
     self.selectedIndex = indexPath.row;
     [self setCellSelectedStatus:cell selected:YES];
     
+    [self calculateMaskViewPositionWithIndexPath:indexPath];
+    
+}
+
+- (CGRect)sliderFrameWithIndexPath:(NSIndexPath *)indexPath {
+   
+    
+    YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     
     if (self.style != BIGGER) {
         
@@ -230,13 +251,20 @@
         if (indexPath.row == 0 || indexPath.row == self.titles.count - 1) {
             beginGap = 2;
         }
-        [UIView animateWithDuration:0.25 animations:^{
-            
-            
-  
-            self.sliderView.frame = CGRectMake(cell.frame.origin.x + beginGap, self.frame.size.height - self.sliderHeight, rect.size.width - 2 * beginGap, self.sliderHeight);
-        }];
+        
+        return CGRectMake(cell.frame.origin.x + beginGap, self.frame.size.height - self.sliderHeight, rect.size.width - 2 * beginGap, self.sliderHeight);
     }
+    return CGRectZero;
+}
+
+- (void)calculateMaskViewPositionWithIndexPath:(NSIndexPath *)indexPath {
+    
+    YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.sliderView.frame = [self sliderFrameWithIndexPath:indexPath];
+    }];
     
     
     CGPoint center =   [self convertPoint:cell.center fromView:self.collectionView];
@@ -244,34 +272,26 @@
     CGFloat maxScrollX = self.collectionView.contentSize.width - self.collectionView.frame.size.width;
     
     CGFloat deltaX = center.x - self.bounds.size.width / 2;
-
-
+    
+    
     if (center.x > self.bounds.size.width  / 2) {
         
         
         
-            [UIView animateWithDuration:0.25 animations:^{
-                
-                self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x + deltaX > maxScrollX ? maxScrollX : self.collectionView.contentOffset.x + deltaX, 0);
-            }];
-
-        } else if (center.x < self.bounds.size.width / 2) {
-           
-            [UIView animateWithDuration:0.25 animations:^{
-                
-                self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x + deltaX < 0 ? 0 : self.collectionView.contentOffset.x + deltaX, 0);
-            }];
-
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x + deltaX > maxScrollX ? maxScrollX : self.collectionView.contentOffset.x + deltaX, 0);
+        }];
         
-        }
+    } else if (center.x < self.bounds.size.width / 2) {
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            self.collectionView.contentOffset = CGPointMake(self.collectionView.contentOffset.x + deltaX < 0 ? 0 : self.collectionView.contentOffset.x + deltaX, 0);
+        }];
+        
         
     }
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-   
-    YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    [self setCellSelectedStatus:cell selected:NO];
-    self.isFirstSelected = NO;
 }
 
 - (void)setCellSelectedStatus:(YMTopTabCell *)cell selected:(BOOL)selected {
@@ -344,16 +364,82 @@
 
 
 - (void)adpatScrollViewDidScroll:(UIScrollView *)scrollView {
-
-    NSLog(@"deltx = %f", scrollView.contentOffset.x - self.lastContentOffset);
-    NSLog(@"scale = %f", (scrollView.contentOffset.x - self.lastContentOffset) / scrollView.bounds.size.width);
+    
+    if(self.lastSelectedByTap) {
+        
+        return;
+    }
+    
+    CGFloat delX = scrollView.contentOffset.x - self.lastContentOffset;
+    NSInteger nextSliderIndex = 0;
+    if (delX > 0) {
+        
+        nextSliderIndex = self.selectedIndex  + 1;
+        if (nextSliderIndex >= self.titles.count) {
+            
+            return;
+        }
+    } else if (delX < 0) {
+        
+        nextSliderIndex = self.selectedIndex  - 1;
+        if (nextSliderIndex < 0) {
+            
+            return;
+        }
+    }
+    
+    CGRect sliderRect = [self sliderFrameWithIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
+    
+    CGRect nextSliderRect = [self sliderFrameWithIndexPath:[NSIndexPath indexPathForRow:nextSliderIndex inSection:0]];
+    
+    CGFloat moveX = (nextSliderRect.origin.x - sliderRect.origin.x) *( fabs(scrollView.contentOffset.x - self.lastContentOffset) / scrollView.frame.size.width);
+    self.sliderView.frame = CGRectMake(sliderRect.origin.x + moveX, sliderRect.origin.y, sliderRect.size.width, sliderRect.size.height);
+    
+    
+    if (self.scrollingChangFont) {
+        
+        YMTopTabCell *nextCell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:nextSliderIndex inSection:0]];
+        
+        YMTopTabCell *cell = (YMTopTabCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
+        
+        CGFloat moveFont = (self.selectedFont.pointSize - self.normalFont.pointSize) *( fabs(scrollView.contentOffset.x - self.lastContentOffset) / scrollView.frame.size.width);
+        
+        UIFont *font =  [UIFont fontWithName:self.selectedFont.fontName size:self.normalFont.pointSize + moveFont];
+        nextCell.titleLabel.font = font;
+        
+        UIFont  *currentFont = [UIFont fontWithName:self.selectedFont.fontName size:self.selectedFont.pointSize - moveFont];
+        cell.titleLabel.font = currentFont;
+    }
 }
 
 - (void)adpatScrollViewDidEndScroll:(UIScrollView *)scrollView {
   
+    NSInteger index = fabs(scrollView.contentOffset.x) / scrollView.bounds.size.width;
+    
+    self.lastSelectedByTap = NO;
+
+    [self setSelectedCellStatus:[NSIndexPath indexPathForRow:index inSection:0]];
+    
     self.lastContentOffset = scrollView.contentOffset.x;
+    
 }
 
+- (NSArray *)scrollColorWithScale:(CGFloat)scale {
+   
+    const CGFloat *normalComponents = CGColorGetComponents(self.normalColor.CGColor);
+    const CGFloat *selectedComponents = CGColorGetComponents(self.selectedColor.CGColor);
+    
+    CGFloat deltaRed = selectedComponents[0] - normalComponents[0];
+    CGFloat deltaGreen = selectedComponents[1] - normalComponents[1];
+    CGFloat deltaBlue = selectedComponents[2] - normalComponents[2];
+    
+    UIColor *currentTitleColor = [UIColor colorWithRed:selectedComponents[0] - deltaRed * scale  green:selectedComponents[1] - deltaGreen * scale blue:selectedComponents[2] - deltaBlue * scale alpha:1];
+    
+    UIColor *nextTitleColor = [UIColor colorWithRed:normalComponents[0] + deltaRed * scale  green:normalComponents[1] + deltaGreen * scale blue:normalComponents[2] + deltaBlue * scale alpha:1];
+    return  @[currentTitleColor, nextTitleColor];
+    
+    
+}
 
 
 @end

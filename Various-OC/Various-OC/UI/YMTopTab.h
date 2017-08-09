@@ -62,6 +62,9 @@ typedef NS_ENUM(NSInteger, YMTopTabStyle) {
 
 @property (nonatomic, assign) id<YMTopTabDelegate> delegate;
 
+@property (nonatomic, assign) UIScrollView *adpotScrollView;
+@property (nonatomic, assign) BOOL scrollingChangFont;
+
 - (void)adpatScrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)adpatScrollViewDidEndScroll:(UIScrollView *)scrollView;
 

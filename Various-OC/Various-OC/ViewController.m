@@ -19,71 +19,150 @@
 @property (nonatomic, assign) NSInteger value;
 @property (nonatomic, strong) NSArray *colors;
 @property (nonatomic, strong) YMTopTab *topTab;
+@property (nonatomic, strong) NSMutableArray *numberStack;
+@property (nonatomic, strong) NSMutableArray *operationStack;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     
-//    [super viewDidLoad];
-//    NSString *str = @"Hello,World";
-//    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-//    NSLog(@"%@",[data hexString]);
+    
+    self.numberStack = [[NSMutableArray alloc] initWithCapacity:0];
+    self.operationStack = [[NSMutableArray alloc] initWithCapacity:0];
+
+    NSString *str = @"5 * 3 * 8";
+   
+   float result =  [self calculate:str];
+    
+    NSLog(@"result = %.2f", result);
+}
+
+
+- (BOOL)ispority:(NSString *)top second:(NSString *)second {
+   
+  //等级顺序 + - * /
     
     
-    YMTopTab *tab = [[YMTopTab alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
-    tab.titles = @[@"推荐", @"视频", @"NBA", @"法律节目",@"推荐", @"视频", @"NBA", @"法律节目"];
-    tab.selectedFont = [UIFont systemFontOfSize:18.0];
-    tab.delegate = self;
- //   tab.fillout = NO;
-    tab.style = BiGSLIDER;
-    [self.view addSubview:tab];
-    
-    self.topTab = tab;
-    
-    self.colors = @[[UIColor redColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor], [UIColor yellowColor], [UIColor grayColor], [UIColor redColor], [UIColor greenColor]];
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 140, self.view.frame.size.width, self.view.frame.size.height - 140)];
-    scrollView.contentSize = CGSizeMake(8 * self.view.frame.size.width, scrollView.frame.size.height);
-    for (int i = 0; i < 8; i++) {
+    if ([top isEqualToString:@"*"]) {
         
-        UIView *view = [[UIView alloc] initWithFrame: CGRectMake(i * scrollView.bounds.size.width, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
-        view.backgroundColor = self.colors[i];
-        [scrollView addSubview:view];
-        
+        if ([second isEqualToString:@"+"] || [second isEqualToString:@"-"]) {
+            
+            return YES;
+        } else {
+          
+            return  NO;
+        }
+    } else if ([top isEqualToString:@"/"]) {
+       
+        if ([second isEqualToString:@"/"]) {
+            
+            return NO;
+        } else {
+            
+            return  YES;
+        }
+    } else if ([top isEqualToString:@"-"]) {
+       
+        if ([second isEqualToString:@"+"]) {
+            return  YES;
+        } else {
+          
+            return  NO;
+        }
     }
-    scrollView.pagingEnabled = YES;
     
-    scrollView.delegate = self;
-    
-    [self.view addSubview:scrollView];
-    
-    
+    return NO;
 }
 
-
--(void)change {
-   
-    self.value = 10 - self.value;
+- (float)operation:(NSString*)op firstNumber:(NSString *)firstNumber secondNumber:(NSString *)secondNumber {
+    
+    if ([op isEqualToString:@"+"]) {
+        
+        return [firstNumber floatValue] + [secondNumber floatValue];
+    } else if ([op isEqualToString:@"-"]) {
+      
+        return [firstNumber floatValue] - [secondNumber floatValue];
+    } else if ([op isEqualToString:@"*"]) {
+        
+        return [firstNumber floatValue] * [secondNumber floatValue];
+        
+    }  else if ([op isEqualToString:@"/"]) {
+        
+        return [firstNumber floatValue] / [secondNumber floatValue];
+    }
+    
+    return 0;
 }
 
-- (void)didSelecteItemAtIndex:(NSUInteger)index title:(NSString *)title {
+- (float)calculate:(NSString *)expression {
     
     
+    NSMutableArray *arry = [[NSMutableArray alloc] initWithArray:[expression componentsSeparatedByString:@" "]];
+    if (![self isPureFloat:[arry lastObject]]) {
+     
+        [arry removeLastObject];
+    }
+    for (NSString *str in arry) {
+        
+        if ([self isPureFloat:str]) {
+            
+            [self.numberStack insertObject:@([str floatValue]) atIndex:0];
+            
+        } else {
+          
+            if (self.operationStack.count == 0) {
+                
+                [self.operationStack insertObject:str atIndex:0];
+                
+            } else {
+            
+                if (![self ispority:str second:[self.operationStack objectAtIndex:0]]) {
+                    
+                    float result = [self operation:self.operationStack[0] firstNumber:self.numberStack[1] secondNumber:self.numberStack[0]];
+                    [self.numberStack removeObjectAtIndex:0];
+                    [self.numberStack removeObjectAtIndex:0];
+                    [self.numberStack insertObject:@(result) atIndex:0];
+                    self.operationStack[0] = str;
+                } else {
+                  
+                    [self.operationStack insertObject:str atIndex:0];
+                }
+                
+                
+
+            }
+            
+        }
+    }
+    
+    CGFloat result = [self.operationStack.firstObject floatValue];
+    while (self.operationStack.count > 0) {
+        
+        NSString *operate = self.operationStack[0];
+        
+        result = [self operation:operate firstNumber:self.numberStack[1] secondNumber:self.numberStack[0]];
+        [self.numberStack removeObjectAtIndex:0];
+        [self.numberStack removeObjectAtIndex:0];
+        [self.numberStack insertObject:@(result) atIndex:0];
+        
+        [self.operationStack removeObjectAtIndex:0];
+    }
+    return result;
 }
 
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-   
-    [self.topTab adpatScrollViewDidScroll:scrollView];
+- (BOOL)isPureInt:(NSString*)string{
+    
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
 }
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-  
-    [self.topTab adpatScrollViewDidEndScroll:scrollView];
+//判断是否为浮点形：
+- (BOOL)isPureFloat:(NSString*)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    float val;
+    return[scan scanFloat:&val] && [scan isAtEnd];
 }
-
-
 
 
 
