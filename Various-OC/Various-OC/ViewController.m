@@ -13,6 +13,8 @@
 #import "NSData+YMExtend.h"
 #import "YMTopTab.h"
 #import "OTDictionary.h"
+#import "NSDictionary+safe.h"
+
 
 @interface ViewController ()<printProtocaolDelegate, YMTopTabDelegate, UIScrollViewDelegate>
 @property (nonatomic, assign) NSTimeInterval currentTime;
@@ -27,15 +29,10 @@
 
 - (void)viewDidLoad {
     
+    NSString *name;
     
-    self.numberStack = [[NSMutableArray alloc] initWithCapacity:0];
-    self.operationStack = [[NSMutableArray alloc] initWithCapacity:0];
-
-    NSString *str = @"5 * 3 * 8";
-   
-   float result =  [self calculate:str];
-    
-    NSLog(@"result = %.2f", result);
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    dict[@"name"] = @2;
 }
 
 
@@ -46,15 +43,17 @@
     
     if ([top isEqualToString:@"*"]) {
         
-        if ([second isEqualToString:@"+"] || [second isEqualToString:@"-"]) {
+        if ([second isEqualToString:@"/"]) {
+            
+            return NO;
+            
+        } else {
             
             return YES;
-        } else {
-          
-            return  NO;
+            
         }
     } else if ([top isEqualToString:@"/"]) {
-       
+        
         if ([second isEqualToString:@"/"]) {
             
             return NO;
@@ -63,14 +62,17 @@
             return  YES;
         }
     } else if ([top isEqualToString:@"-"]) {
-       
+        
         if ([second isEqualToString:@"+"]) {
+           
             return  YES;
+            
         } else {
-          
+            
             return  NO;
         }
     }
+    return NO;
     
     return NO;
 }
@@ -110,31 +112,33 @@
             [self.numberStack insertObject:@([str floatValue]) atIndex:0];
             
         } else {
-          
+            
             if (self.operationStack.count == 0) {
                 
                 [self.operationStack insertObject:str atIndex:0];
                 
             } else {
-            
-                if (![self ispority:str second:[self.operationStack objectAtIndex:0]]) {
+                
+                while (self.operationStack.count > 0 && ![self ispority:str second:[self.operationStack objectAtIndex:0]]) {
                     
                     float result = [self operation:self.operationStack[0] firstNumber:self.numberStack[1] secondNumber:self.numberStack[0]];
                     [self.numberStack removeObjectAtIndex:0];
                     [self.numberStack removeObjectAtIndex:0];
                     [self.numberStack insertObject:@(result) atIndex:0];
-                    self.operationStack[0] = str;
-                } else {
-                  
-                    [self.operationStack insertObject:str atIndex:0];
+                    [self.operationStack removeObjectAtIndex:0];
                 }
                 
-                
+                [self.operationStack insertObject:str atIndex:0];
 
+                
             }
             
+            
+            
         }
+        
     }
+
     
     CGFloat result = [self.operationStack.firstObject floatValue];
     while (self.operationStack.count > 0) {

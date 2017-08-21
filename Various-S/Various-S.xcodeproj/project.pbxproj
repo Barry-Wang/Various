@@ -21,6 +21,9 @@
 		4CE1F28A1EF0D3650048ED8F /* Various_SUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2891EF0D3650048ED8F /* Various_SUITests.swift */; };
 		4CE1F2981EF125490048ED8F /* YMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2971EF125490048ED8F /* YMTableView.swift */; };
 		4CE1F29A1EF22FF30048ED8F /* YMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2991EF22FF30048ED8F /* YMButton.swift */; };
+		CA342E501F429AD400344323 /* YMTopTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA342E4F1F429AD400344323 /* YMTopTab.swift */; };
+		CA342E531F42AA0000344323 /* YMTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA342E511F42AA0000344323 /* YMTopCell.swift */; };
+		CA342E541F42AA0000344323 /* YMTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA342E521F42AA0000344323 /* YMTopCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		4CE1F28B1EF0D3650048ED8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CE1F2971EF125490048ED8F /* YMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMTableView.swift; sourceTree = "<group>"; };
 		4CE1F2991EF22FF30048ED8F /* YMButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMButton.swift; sourceTree = "<group>"; };
+		CA342E4F1F429AD400344323 /* YMTopTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMTopTab.swift; sourceTree = "<group>"; };
+		CA342E511F42AA0000344323 /* YMTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMTopCell.swift; sourceTree = "<group>"; };
+		CA342E521F42AA0000344323 /* YMTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YMTopCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		4CE1F25D1EF0D3650048ED8F = {
 			isa = PBXGroup;
 			children = (
+				CA342E4E1F429A9100344323 /* UI */,
 				4CE1F2681EF0D3650048ED8F /* Various-S */,
 				4CE1F27D1EF0D3650048ED8F /* Various-STests */,
 				4CE1F2881EF0D3650048ED8F /* Various-SUITests */,
@@ -155,6 +162,16 @@
 				4CE1F28B1EF0D3650048ED8F /* Info.plist */,
 			);
 			path = "Various-SUITests";
+			sourceTree = "<group>";
+		};
+		CA342E4E1F429A9100344323 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CA342E4F1F429AD400344323 /* YMTopTab.swift */,
+				CA342E511F42AA0000344323 /* YMTopCell.swift */,
+				CA342E521F42AA0000344323 /* YMTopCell.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +286,7 @@
 				4C75BEB11F16187500648CDB /* speaker@2x.png in Resources */,
 				4CE1F26F1EF0D3650048ED8F /* Main.storyboard in Resources */,
 				4C75BEB21F16187500648CDB /* speaker@3x.png in Resources */,
+				CA342E541F42AA0000344323 /* YMTopCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,9 +314,11 @@
 				4CE1F26C1EF0D3650048ED8F /* ViewController.swift in Sources */,
 				4C75BEA71F15EF3F00648CDB /* OTTouchButton.swift in Sources */,
 				4C75BEA91F15F68200648CDB /* OTAudioSession.swift in Sources */,
+				CA342E531F42AA0000344323 /* YMTopCell.swift in Sources */,
 				4CE1F2981EF125490048ED8F /* YMTableView.swift in Sources */,
 				4CE1F26A1EF0D3650048ED8F /* AppDelegate.swift in Sources */,
 				4CE1F29A1EF22FF30048ED8F /* YMButton.swift in Sources */,
+				CA342E501F429AD400344323 /* YMTopTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

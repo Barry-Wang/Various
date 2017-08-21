@@ -65,12 +65,10 @@
     CGSize titleSize =  [title sizeWithAttributes:@{NSFontAttributeName:self.selectedFont}];
     
     self.titleSize = titleSize;
-    CGSize size = self.collectionView.frame.size;
-    size.height = titleSize.height;
     
     [self calculateWidth];
  
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height + self.topGap + self.bottomGap + self.sliderHeight);
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, titleSize.height + self.topGap + self.bottomGap + self.sliderHeight);
     
     [self setNeedsLayout];
     
@@ -120,7 +118,6 @@
         
         flowLayout.minimumInteritemSpacing = 0;
 
-        
     } else {
        
         flowLayout.minimumInteritemSpacing = 10;

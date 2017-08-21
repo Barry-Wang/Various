@@ -21,6 +21,8 @@
 		4CE1F2C21EF264920048ED8F /* Various_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2C11EF264920048ED8F /* Various_OCTests.m */; };
 		4CE1F2CD1EF264920048ED8F /* Various_OCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1F2CC1EF264920048ED8F /* Various_OCUITests.m */; };
 		CA451E3E1F344E6000C3F7A0 /* OTDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CA451E3D1F344E6000C3F7A0 /* OTDictionary.m */; };
+		CAA0BE9F1F4ABFCA00FE9EFD /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0BE9E1F4ABFCA00FE9EFD /* NSDictionary+safe.m */; };
+		CAA0BEA21F4AD75300FE9EFD /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA0BEA11F4AD75300FE9EFD /* NSMutableDictionary+Safe.m */; };
 		CAB094941F2751A700300875 /* YMTopTab.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB094931F2751A700300875 /* YMTopTab.m */; };
 		CAB094971F2760EE00300875 /* YMTopTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB094961F2760EE00300875 /* YMTopTabCell.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,10 @@
 		4CE1F2DA1EF26F740048ED8F /* YYMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYMac.h; sourceTree = "<group>"; };
 		CA451E3C1F344E6000C3F7A0 /* OTDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTDictionary.h; sourceTree = "<group>"; };
 		CA451E3D1F344E6000C3F7A0 /* OTDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTDictionary.m; sourceTree = "<group>"; };
+		CAA0BE9D1F4ABFCA00FE9EFD /* NSDictionary+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safe.h"; sourceTree = "<group>"; };
+		CAA0BE9E1F4ABFCA00FE9EFD /* NSDictionary+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safe.m"; sourceTree = "<group>"; };
+		CAA0BEA01F4AD75300FE9EFD /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		CAA0BEA11F4AD75300FE9EFD /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
 		CAB094921F2751A700300875 /* YMTopTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTopTab.h; sourceTree = "<group>"; };
 		CAB094931F2751A700300875 /* YMTopTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTopTab.m; sourceTree = "<group>"; };
 		CAB094951F2760EE00300875 /* YMTopTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTopTabCell.h; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 				4C271CC01F17782800A03D53 /* NSData+YMExtend.m */,
 				CA451E3C1F344E6000C3F7A0 /* OTDictionary.h */,
 				CA451E3D1F344E6000C3F7A0 /* OTDictionary.m */,
+				CAA0BE9D1F4ABFCA00FE9EFD /* NSDictionary+safe.h */,
+				CAA0BE9E1F4ABFCA00FE9EFD /* NSDictionary+safe.m */,
+				CAA0BEA01F4AD75300FE9EFD /* NSMutableDictionary+Safe.h */,
+				CAA0BEA11F4AD75300FE9EFD /* NSMutableDictionary+Safe.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -340,9 +350,11 @@
 				4CE1F2AF1EF264920048ED8F /* ViewController.m in Sources */,
 				CAB094971F2760EE00300875 /* YMTopTabCell.m in Sources */,
 				CA451E3E1F344E6000C3F7A0 /* OTDictionary.m in Sources */,
+				CAA0BE9F1F4ABFCA00FE9EFD /* NSDictionary+safe.m in Sources */,
 				CAB094941F2751A700300875 /* YMTopTab.m in Sources */,
 				4CE1F2AC1EF264920048ED8F /* AppDelegate.m in Sources */,
 				4C75BEA51F15C8F300648CDB /* NSObject+YMAddForKVO.m in Sources */,
+				CAA0BEA21F4AD75300FE9EFD /* NSMutableDictionary+Safe.m in Sources */,
 				4CE1F2A91EF264920048ED8F /* main.m in Sources */,
 				4C271CC11F17782800A03D53 /* NSData+YMExtend.m in Sources */,
 				4C2F909B1F05F11C0086ABA1 /* NSObject+YMExtend.m in Sources */,
